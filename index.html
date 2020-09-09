@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://138.49.101.81/Node -->
+<html class="gr__138_49_101_81">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Typology - Team Lion Network</title>
+
+    <link rel="stylesheet" href="./files/bootstrap.min.css">
+    <script>
+        ! function(a, b, c, d) {
+            var e, f = document,
+                g = f.getElementsByTagName("SCRIPT"),
+                h = g[g.length - 1].previousElementSibling,
+                i = f.defaultView && f.defaultView.getComputedStyle ? f.defaultView.getComputedStyle(h) : h.currentStyle;
+            if (i && i[a] !== b)
+                for (e = 0; e < c.length; e++) f.write('<link href="' + c[e] + '" ' + d + "/>")
+        }("position", "absolute", ["\/lib\/bootstrap\/dist\/css\/bootstrap.min.css"], "");
+    </script>
+
+    <link rel="stylesheet" href="./files/site.css">
+    <style data-styled-components=""></style>
+</head>
+
+<body data-gr-c-s-loaded="true" style="">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" href="http://138.49.101.81/">Team Lion - Network Typology</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" title="Manage" href="http://138.49.101.81/Identity/Account/Manage">Hello jketelaar2!</a>
+                        </li>
+                        <li class="nav-item">
+                            <form class="form-inline" action="http://138.49.101.81/Identity/Account/Logout?returnUrl=%2F" method="post">
+                                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8GoiqcyFBwJFri46l0VMqDvVf48lpf6fdZRpEgdX_tAiEqJ_tnUIENhjyG7mi2X4GnEPoSuEYXhMxQM-kOlv9OZb2HXaHBHgeZoNMoj6_EbFEeymzcgXVicQNGRb8Eh51Fc16xmYfOqatylW4AvXhuNaP6J3uc_oMvC3Ytr6Ww5hZC0sBMc7mL_mUQQqwQ5aXg">
+                            </form>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="http://138.49.101.81/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="http://138.49.101.81/Node">Network Typology</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+
+            <div class="text-center">
+                    <main role="main" class="container">
+        <p>Selected pattern:</p><span id="selected_pattern">None</span>
+        <hr/>
+        <button class="btn btn-primary" id="btn_node">Add Node</button>
+        <button class="btn btn-primary" id="btn_link" style="display: none;">Add Link</button>
+        <hr/>
+        <button class="btn btn-primary" id="btn_c_node">Add Connector Node</button>
+        <hr/>
+        <div id="canvas" style="display: block; margin: 0 auto"></div>
+    </main>
+
+                <script>
+                    var nodes = [];
+                    var links = [];
+
+                    nodes.push({
+                        id: 2,
+                        pattern: 2,
+                        connector: true,
+                        active: false
+                    });
+
+                    nodes.push({
+                        id: 3,
+                        pattern: 2,
+                        connector: false,
+                        active: false
+                    });
+
+                    nodes.push({
+                        id: 4,
+                        pattern: 2,
+                        connector: false,
+                        active: true
+                    });
+
+                    nodes.push({
+                        id: 5,
+                        pattern: 2,
+                        connector: false,
+                        active: false
+                    });
+
+                    nodes.push({
+                        id: 6,
+                        pattern: 3,
+                        connector: true,
+                        active: false
+                    });
+
+                    nodes.push({
+                        id: 7,
+                        pattern: 3,
+                        connector: false,
+                        active: true
+                    });
+
+                    nodes.push({
+                        id: 8,
+                        pattern: 3,
+                        connector: false,
+                        active: true
+                    });
+
+                    nodes.push({
+                        id: 9,
+                        pattern: 3,
+                        connector: false,
+                        active: false
+                    });
+
+                    nodes.push({
+                        id: 10,
+                        pattern: 3,
+                        connector: false,
+                        active: true
+                    });
+
+                    nodes.push({
+                        id: 11,
+                        pattern: 2,
+                        connector: false,
+                        active: true
+                    });
+
+                    nodes.push({
+                        id: 12,
+                        pattern: 4,
+                        connector: true,
+                        active: false
+                    });
+
+                    nodes.push({
+                        id: 13,
+                        pattern: 4,
+                        connector: false,
+                        active: true
+                    });
+
+                    nodes.push({
+                        id: 14,
+                        pattern: 4,
+                        connector: false,
+                        active: true
+                    });
+
+                    nodes.push({
+                        id: 15,
+                        pattern: 4,
+                        connector: false,
+                        active: true
+                    });
+
+                    nodes.push({
+                        id: 16,
+                        pattern: 4,
+                        connector: false,
+                        active: true
+                    });
+
+                    nodes.push({
+                        id: 17,
+                        pattern: 3,
+                        connector: false,
+                        active: true
+                    });
+
+                    nodes.push({
+                        id: 19,
+                        pattern: 6,
+                        connector: true,
+                        active: true
+                    });
+
+                    nodes.push({
+                        id: 20,
+                        pattern: 6,
+                        connector: false,
+                        active: false
+                    });
+
+                    nodes.push({
+                        id: 21,
+                        pattern: 6,
+                        connector: false,
+                        active: true
+                    });
+
+                    links.push({
+                        id: 2,
+                        source: 3,
+                        target: 2,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 3,
+                        source: 4,
+                        target: 2,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 4,
+                        source: 3,
+                        target: 2,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 5,
+                        source: 3,
+                        target: 4,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 6,
+                        source: 4,
+                        target: 2,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 8,
+                        source: 5,
+                        target: 2,
+                        invisible: true,
+                    });
+
+                    links.push({
+                        id: 9,
+                        source: 5,
+                        target: 3,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 11,
+                        source: 7,
+                        target: 6,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 12,
+                        source: 8,
+                        target: 6,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 13,
+                        source: 7,
+                        target: 6,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 14,
+                        source: 7,
+                        target: 8,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 15,
+                        source: 8,
+                        target: 6,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 17,
+                        source: 9,
+                        target: 6,
+                        invisible: true,
+                    });
+
+                    links.push({
+                        id: 18,
+                        source: 9,
+                        target: 7,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 20,
+                        source: 9,
+                        target: 10,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 21,
+                        source: 10,
+                        target: 6,
+                        invisible: true,
+                    });
+
+                    links.push({
+                        id: 22,
+                        source: 4,
+                        target: 11,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 23,
+                        source: 5,
+                        target: 11,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 24,
+                        source: 11,
+                        target: 2,
+                        invisible: true,
+                    });
+
+                    links.push({
+                        id: 25,
+                        source: 6,
+                        target: 2,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 27,
+                        source: 13,
+                        target: 12,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 28,
+                        source: 14,
+                        target: 12,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 29,
+                        source: 13,
+                        target: 12,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 30,
+                        source: 13,
+                        target: 14,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 31,
+                        source: 14,
+                        target: 12,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 33,
+                        source: 15,
+                        target: 12,
+                        invisible: true,
+                    });
+
+                    links.push({
+                        id: 34,
+                        source: 15,
+                        target: 13,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 35,
+                        source: 14,
+                        target: 16,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 36,
+                        source: 15,
+                        target: 16,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 37,
+                        source: 16,
+                        target: 12,
+                        invisible: true,
+                    });
+
+                    links.push({
+                        id: 38,
+                        source: 8,
+                        target: 17,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 39,
+                        source: 10,
+                        target: 17,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 40,
+                        source: 17,
+                        target: 6,
+                        invisible: true,
+                    });
+
+                    links.push({
+                        id: 41,
+                        source: 12,
+                        target: 6,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 44,
+                        source: 20,
+                        target: 19,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 45,
+                        source: 19,
+                        target: 12,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 46,
+                        source: 21,
+                        target: 19,
+                        invisible: false,
+                    });
+
+                    links.push({
+                        id: 47,
+                        source: 19,
+                        target: 2,
+                        invisible: false,
+                    });
+                </script>
+            </div>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            © 2019 - Team Lion
+        </div>
+    </footer>
+
+    <script src="./files/jquery.min.js">
+    </script>
+    <script>
+        (window.jQuery || document.write("\u003Cscript src=\u0022\/lib\/jquery\/dist\/jquery.min.js\u0022 crossorigin=\u0022anonymous\u0022 integrity=\u0022sha256-FgpCb\/KJQlLNfOu91ta32o\/NMZxltwRo8QtmkMRdAu8=\u0022\u003E\u003C\/script\u003E"));
+    </script>
+    <script src="./files/bootstrap.bundle.min.js">
+    </script>
+    <script>
+        (window.jQuery && window.jQuery.fn && window.jQuery.fn.modal || document.write("\u003Cscript src=\u0022\/lib\/bootstrap\/dist\/js\/bootstrap.bundle.min.js\u0022 crossorigin=\u0022anonymous\u0022 integrity=\u0022sha256-E\/V4cWE4qvAeO5MOhjtGtqDzPndRO1LBk8lJ\/PR7CA4=\u0022\u003E\u003C\/script\u003E"));
+    </script>
+
+    <script src="./files/site.js"></script>
+    <script src="./files/d3.js"></script>
+    <script src="./files/typology.js"></script>
+</body>
+
+</html>
